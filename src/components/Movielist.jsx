@@ -1,3 +1,5 @@
+import Moviecard from "./Moviecard";
+
 const Movielist = () => {
   return (
     <section className="main_content h-auto">
@@ -31,6 +33,8 @@ const Movielist = () => {
           </select>
         </div>
       </header>
+
+      <Moviecard />
     </section>
   );
 };
