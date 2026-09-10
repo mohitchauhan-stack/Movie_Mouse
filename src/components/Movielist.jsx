@@ -2,8 +2,8 @@ import Moviecard from "./Moviecard";
 
 const Movielist = () => {
   return (
-    <section className="main_content h-auto">
-      <header className="movielist_header flex justify-between h-10 items-center">
+    <section className="main_content">
+      <header className="movielist_header flex justify-between h-10 items-center ">
         <h2 className="movielist_heading">Popular 🔥</h2>
         <div className="movielist_fs flex">
           <ul className="movie_filter flex gap-2">
@@ -34,7 +34,9 @@ const Movielist = () => {
         </div>
       </header>
 
-      <Moviecard />
+      <div className="movie_cards">
+        <Moviecard />
+      </div>
     </section>
   );
 };
