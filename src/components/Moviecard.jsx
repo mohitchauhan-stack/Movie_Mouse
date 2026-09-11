@@ -1,7 +1,7 @@
 const Moviecard = () => {
   return (
     <>
-      <div className="flex flex-col w-60 h-80 m-3 ">
+      <div className="flex flex-col w-60 h-80  m-3 ">
         <a
           href=""
           className="h-full w-full border rounded-md shadow-lg shadow-amber-200 overflow-hidden  relative hover:scale-[1.01] transition-all duration-400 group"

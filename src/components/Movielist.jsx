@@ -1,6 +1,20 @@
 import Moviecard from "./Moviecard";
 
+import { useEffect } from "react";
+
 const Movielist = () => {
+  const fetchApiData = async () => {
+    const resposne = await fetch(
+      "https://api.themoviedb.org/3/movie/popular?api_key=58fa44c040037d0c23ad43428f1a5588",
+    );
+    const data = await resposne.json();
+    console.log(data);
+  };
+
+  useEffect(() => {
+    fetchApiData();
+  }, []);
+
   return (
     <section className="main_content">
       <header className="movielist_header flex justify-between h-10 items-center ">
