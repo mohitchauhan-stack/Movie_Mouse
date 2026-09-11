@@ -1,14 +1,17 @@
 import Moviecard from "./Moviecard";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const Movielist = () => {
+  const [movies, setMovies] = useState([]);
+
   const fetchApiData = async () => {
     const resposne = await fetch(
       "https://api.themoviedb.org/3/movie/popular?api_key=58fa44c040037d0c23ad43428f1a5588",
     );
     const data = await resposne.json();
-    console.log(data);
+    // console.log(data);
+    setMovies(data.results);
   };
 
   useEffect(() => {
@@ -48,8 +51,10 @@ const Movielist = () => {
         </div>
       </header>
 
-      <div className="movie_cards">
-        <Moviecard />
+      <div className="movie_cards flex flex-wrap">
+        {movies.map((movie) => (
+          <Moviecard key={movie.id} movie={movie} />
+        ))}
       </div>
     </section>
   );

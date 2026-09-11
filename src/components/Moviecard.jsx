@@ -1,27 +1,27 @@
-const Moviecard = () => {
+const Moviecard = ({ movie }) => {
   return (
     <>
-      <div className="flex flex-col w-60 h-80  m-3 ">
+      <div className="flex flex-col w-70 h-110  m-3 ">
         <a
-          href=""
+          href={`https://www.themoviedb.org/movie/${movie.id}`}
+          target="_blank"
           className="h-full w-full border rounded-md shadow-lg shadow-amber-200 overflow-hidden  relative hover:scale-[1.01] transition-all duration-400 group"
         >
           <img
-            src="public/logo.jpg"
+            src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
             alt=""
             className="movie_poster w-full h-full"
           />
           <div className="movie_details absolute top-0 h-full w-full p-2.5 flex flex-col justify-end bg-linear-30  from-[rgba(0,0,0,1)] to-[rgba(255,255,255,0)] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
             <h3 className="movie_details_heading text-xl font-bold-">
-              Movie Name
+              {movie.original_title}
             </h3>
             <div className="movie_date_rate flex justify-between">
-              <p>10-20-2020</p>
-              <p>9.8 ⭐️</p>
+              <p>{movie.release_date}</p>
+              <p>{Math.round(movie.vote_average)} ⭐️</p>
             </div>
             <p className="movie_description">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Necessitatibus asperiores repellendus veritatis ea doloremque.
+              {movie.overview.slice(0, 100) + " ..."}
             </p>
           </div>
         </a>
