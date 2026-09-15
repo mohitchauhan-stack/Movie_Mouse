@@ -18,14 +18,14 @@ const Moviecard = ({ movie }) => {
             </h3>
             <div className="movie_date_rate flex justify-between">
               <p>{movie.release_date}</p>
-              <p>{Math.round(movie.vote_average)} ⭐️</p>
+              <p>{movie.vote_average} ⭐️</p>
             </div>
             <p className="movie_description">
               {movie.overview.slice(0, 100) + " ..."}
             </p>
           </div>
         </a>
-        <h1 className="mt-2">Movie Name</h1>
+        <h1 className="mt-2">{movie.original_title}</h1>
       </div>
     </>
   );

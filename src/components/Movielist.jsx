@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 
 const Movielist = () => {
   const [movies, setMovies] = useState([]);
+  const [filterMovies, setFilterMovies] = useState([]);
+  const [minRating, setMinRating] = useState(0);
 
   const fetchApiData = async () => {
     const resposne = await fetch(
@@ -12,6 +14,18 @@ const Movielist = () => {
     const data = await resposne.json();
     // console.log(data);
     setMovies(data.results);
+    setFilterMovies(data.results);
+  };
+
+  const handleFilter = (rate) => {
+    if (rate === minRating) {
+      setMinRating(0);
+      setFilterMovies(movies);
+    } else {
+      setMinRating(rate);
+      const filtered = movies.filter((movie) => movie.vote_average >= rate);
+      setFilterMovies(filtered);
+    }
   };
 
   useEffect(() => {
@@ -24,11 +38,36 @@ const Movielist = () => {
         <h2 className="movielist_heading">Popular 🔥</h2>
         <div className="movielist_fs flex">
           <ul className="movie_filter flex gap-2">
-            <li className="movie_filter_item px-2 cursor-pointer active:underline underline">
+            <li
+              className={
+                minRating === 8
+                  ? "movie_filter_item px-2 cursor-pointer underline"
+                  : "movie_filter_item px-2 cursor-pointer"
+              }
+              onClick={() => handleFilter(8)}
+            >
               8+ Star
             </li>
-            <li className="movie_filter_item px-2 cursor-pointer">7+ Star</li>
-            <li className="movie_filter_item px-2 cursor-pointer">6+ Star</li>
+            <li
+              className={
+                minRating === 7
+                  ? "movie_filter_item px-2 cursor-pointer underline"
+                  : "movie_filter_item px-2 cursor-pointer"
+              }
+              onClick={() => handleFilter(7)}
+            >
+              7+ Star
+            </li>
+            <li
+              className={
+                minRating === 6
+                  ? "movie_filter_item px-2 cursor-pointer underline"
+                  : "movie_filter_item px-2 cursor-pointer"
+              }
+              onClick={() => handleFilter(6)}
+            >
+              6+ Star
+            </li>
           </ul>
 
           <select
@@ -52,7 +91,7 @@ const Movielist = () => {
       </header>
 
       <div className="movie_cards flex flex-wrap">
-        {movies.map((movie) => (
+        {filterMovies.map((movie) => (
           <Moviecard key={movie.id} movie={movie} />
         ))}
       </div>
