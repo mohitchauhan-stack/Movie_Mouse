@@ -1,3 +1,4 @@
+import FilterGroup from "./FilterGroup";
 import Moviecard from "./Moviecard";
 
 import { useEffect, useState } from "react";
@@ -31,44 +32,18 @@ const Movielist = () => {
   useEffect(() => {
     fetchApiData();
   }, []);
+  0;
 
   return (
     <section className="main_content">
       <header className="movielist_header flex justify-between h-10 items-center ">
         <h2 className="movielist_heading">Popular 🔥</h2>
         <div className="movielist_fs flex">
-          <ul className="movie_filter flex gap-2">
-            <li
-              className={
-                minRating === 8
-                  ? "movie_filter_item px-2 cursor-pointer underline"
-                  : "movie_filter_item px-2 cursor-pointer"
-              }
-              onClick={() => handleFilter(8)}
-            >
-              8+ Star
-            </li>
-            <li
-              className={
-                minRating === 7
-                  ? "movie_filter_item px-2 cursor-pointer underline"
-                  : "movie_filter_item px-2 cursor-pointer"
-              }
-              onClick={() => handleFilter(7)}
-            >
-              7+ Star
-            </li>
-            <li
-              className={
-                minRating === 6
-                  ? "movie_filter_item px-2 cursor-pointer underline"
-                  : "movie_filter_item px-2 cursor-pointer"
-              }
-              onClick={() => handleFilter(6)}
-            >
-              6+ Star
-            </li>
-          </ul>
+          <FilterGroup
+            minRating={minRating}
+            onRatingClick={handleFilter}
+            ratings={[8, 7, 6]}
+          />
 
           <select
             name=""
