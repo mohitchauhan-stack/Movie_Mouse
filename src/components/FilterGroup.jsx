@@ -9,7 +9,7 @@ const FilterGroup = ({ minRating, onRatingClick, ratings }) => {
               : "movie_filter_item px-2 cursor-pointer"
           }
           key={rate}
-          onClick={() => onRatingClick({ rate })}
+          onClick={() => onRatingClick(rate)}
         >
           {rate}+ Star
         </li>

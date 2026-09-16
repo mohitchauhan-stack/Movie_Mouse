@@ -1,12 +1,16 @@
+import { useEffect, useState } from "react";
+
 import FilterGroup from "./FilterGroup";
 import Moviecard from "./Moviecard";
-
-import { useEffect, useState } from "react";
 
 const Movielist = () => {
   const [movies, setMovies] = useState([]);
   const [filterMovies, setFilterMovies] = useState([]);
   const [minRating, setMinRating] = useState(0);
+  const [sort, setSort] = useState({
+    by: "default",
+    order: "asc",
+  });
 
   const fetchApiData = async () => {
     const resposne = await fetch(
@@ -29,6 +33,13 @@ const Movielist = () => {
     }
   };
 
+  const handleSort = (e) => {
+    const { name, value } = e.target;
+    setSort((preVal) => ({ ...preVal, [name]: value }));
+  };
+
+  console.log(sort);
+
   useEffect(() => {
     fetchApiData();
   }, []);
@@ -46,21 +57,25 @@ const Movielist = () => {
           />
 
           <select
-            name=""
+            name="by"
             id=""
+            onChange={handleSort}
+            value={sort.by}
             className="movie_sorting mx-2 bg-neutral-500 rounded-md p-1"
           >
-            <option value="">SortBy</option>
-            <option value="">Date</option>
-            <option value="">Rating</option>
+            <option value="default">SortBy</option>
+            <option value="release_date">Date</option>
+            <option value="vote_average">Rating</option>
           </select>
           <select
-            name=""
+            name="order"
             id=""
+            onChange={handleSort}
+            value={sort.order}
             className="movie_sorting bg-neutral-500 rounded-md p-1"
           >
-            <option value="">Ascending</option>
-            <option value="">Descending</option>
+            <option value="asc">Ascending</option>
+            <option value="desc">Descending</option>
           </select>
         </div>
       </header>
