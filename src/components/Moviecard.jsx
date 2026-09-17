@@ -12,7 +12,7 @@ const Moviecard = ({ movie }) => {
             alt=""
             className="movie_poster w-full h-full"
           />
-          <div className="movie_details absolute top-0 h-full w-full p-2.5 flex flex-col justify-end bg-linear-30  from-[rgba(0,0,0,1)] to-[rgba(255,255,255,0)] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <div className="movie_details  text-neutral-300 absolute top-0 h-full w-full p-2.5 flex flex-col justify-end bg-linear-30  from-[rgba(0,0,0,1)] to-[rgba(255,255,255,0)] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
             <h3 className="movie_details_heading text-xl font-bold-">
               {movie.original_title}
             </h3>

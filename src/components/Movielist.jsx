@@ -66,7 +66,7 @@ const Movielist = () => {
             id=""
             onChange={handleSort}
             value={sort.by}
-            className="movie_sorting mx-2 bg-neutral-500 rounded-md p-1"
+            className="movie_sorting mx-2 bg-neutral-300 cursor-pointer rounded-md p-1"
           >
             <option value="default">SortBy</option>
             <option value="release_date">Date</option>
@@ -77,7 +77,7 @@ const Movielist = () => {
             id=""
             onChange={handleSort}
             value={sort.order}
-            className="movie_sorting bg-neutral-500 rounded-md p-1"
+            className="movie_sorting bg-neutral-300 cursor-pointer rounded-md p-1"
           >
             <option value="asc">Ascending</option>
             <option value="desc">Descending</option>
