@@ -1,3 +1,4 @@
+import _ from "lodash";
 import { useEffect, useState } from "react";
 
 import FilterGroup from "./FilterGroup";
@@ -38,12 +39,16 @@ const Movielist = () => {
     setSort((preVal) => ({ ...preVal, [name]: value }));
   };
 
-  console.log(sort);
-
   useEffect(() => {
     fetchApiData();
   }, []);
-  0;
+
+  useEffect(() => {
+    if (sort.by !== "default") {
+      const sortedMovies = _.orderBy(filterMovies, [sort.by], [sort.order]);
+      setFilterMovies(sortedMovies);
+    }
+  }, [sort]);
 
   return (
     <section className="main_content">
