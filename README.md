@@ -6,6 +6,10 @@ A minimal movie discovery platform built with **React.js** and the **TMDB API**.
 
 [https://movie-mouse-henna.vercel.app/](YOUR_VERCEL_LINK_HERE)
 
+## 🖼️ Preview
+
+![MovieMouse Preview](./public/moviemouse-preview.png)
+
 ## ✨ Features
 
 - 🎬 Fetches popular movies from TMDB API
