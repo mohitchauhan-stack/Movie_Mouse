@@ -1,16 +1,58 @@
-# React + Vite
+# 🎬 MovieMouse
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A minimal movie discovery platform built with **React.js** and the **TMDB API**. Users can browse popular movies, filter them by rating, and sort them by release date or rating.
 
-Currently, two official plugins are available:
+## 🚀 Live Demo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+[https://movie-mouse-henna.vercel.app/](YOUR_VERCEL_LINK_HERE)
 
-## React Compiler
+## ✨ Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- 🎬 Fetches popular movies from TMDB API
+- ⭐ Filter movies by rating
+- ↕️ Sort by release date and rating
+- 🔼 Ascending / descending sorting
+- 🃏 Reusable React components
+- ✨ Movie information hover effects
+- 🎨 Styled with Tailwind CSS
+- 🌙 Dark mode toggle UI _(functionality planned for a future project)_
 
-## Expanding the ESLint configuration
+## 🛠️ Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- React.js
+- JavaScript
+- Tailwind CSS
+- TMDB API
+- Lodash
+- Vite
+- Vercel
+
+## 🧠 What I Learned
+
+- React functional components & props
+- `useState` and `useEffect`
+- API integration and asynchronous data fetching
+- Managing and updating application state
+- Filtering and sorting data
+- Component-based architecture
+- Tailwind CSS styling and transitions
+- Building and deploying a React/Vite application with Vercel
+
+## 📁 Structure
+
+```text
+src/
+├── components/
+│   ├── Navbar.jsx
+│   ├── DarkMode.jsx
+│   ├── Movielist.jsx
+│   ├── Moviecard.jsx
+│   └── FilterGroup.jsx
+│
+├── App.jsx
+└── main.jsx
+```
+
+## 📌 About
+
+MovieMouse was built as part of my **React learning journey**, focusing on working with APIs, managing state, creating reusable components, and deploying a frontend application to production.
